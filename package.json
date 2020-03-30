@@ -1,0 +1,33 @@
+{
+  "name": "react-cli-demo",
+  "version": "1.0.0",
+  "description": "基于react的自制脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack ./src/main.js --config ./build/webpack.base.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xunzhaotech/react-cli-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xunzhaotech/react-cli-demo/issues"
+  },
+  "homepage": "https://github.com/xunzhaotech/react-cli-demo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^4.0.3",
+    "url-loader": "^4.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
