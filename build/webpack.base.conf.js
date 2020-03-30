@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-30 13:43:39
- * @LastEditTime: 2020-03-30 14:29:21
+ * @LastEditTime: 2020-03-30 14:35:48
  * @LastEditors: Please set LastEditors
  * @Description: webpack默认配置
  * @FilePath: \react-cli-demo\build\webpack.base.conf.js
@@ -16,11 +16,17 @@ module.exports = {
   // 接下来为了观察打包后的文件，使用 development
   mode: 'development',
   // 项目入口文件 支持 str | [] | {}
-  entry: path.resolve(__dirname, './src/main.js'),
+  // entry: path.resolve(__dirname, './src/main.js'),
   // 项目出口 
+  // output: {
+  //     path: path.resolve(__dirname, './dist'),
+  //     filename: 'mian.js'
+  // },
+  entry: path.resolve(__dirname, './src/react.js'),
   output: {
-      path: path.resolve(__dirname, './dist'),
-      filename: 'mian.js'
+    path: path.resolve(__dirname, './dist'),
+    // 模块标识符(module identifier)的 hash 取前8位
+    filename: 'main_[hash:8].js'
   },
   // 模块 这些选项决定了如何处理项目中的不同类型的模块。
   module: {
