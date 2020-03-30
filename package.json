@@ -4,6 +4,7 @@
   "description": "基于react的自制脚手架",
   "main": "index.js",
   "scripts": {
+    "server": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack ./src/main.js --config ./build/webpack.base.conf.js"
   },
@@ -29,7 +30,8 @@
     "html-webpack-plugin": "^4.0.3",
     "url-loader": "^4.0.0",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
     "react": "^16.13.1",

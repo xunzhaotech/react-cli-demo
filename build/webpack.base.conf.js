@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2020-03-30 13:43:39
- * @LastEditTime: 2020-03-30 14:35:48
+ * @LastEditTime: 2020-03-30 14:49:38
  * @LastEditors: Please set LastEditors
  * @Description: webpack默认配置
  * @FilePath: \react-cli-demo\build\webpack.base.conf.js
  */
 'use strict'
 const path = require('path');
+const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
@@ -22,7 +23,7 @@ module.exports = {
   //     path: path.resolve(__dirname, './dist'),
   //     filename: 'mian.js'
   // },
-  entry: path.resolve(__dirname, './src/react.js'),
+  entry: path.resolve(__dirname, '../src/react.js'),
   output: {
     path: path.resolve(__dirname, './dist'),
     // 模块标识符(module identifier)的 hash 取前8位
@@ -58,8 +59,23 @@ module.exports = {
         }
     ]
   },
-  // 插件
-  plugins: [
+  // 是否开启 source-map
+  devtool: 'cheap-module-eval-source-map',
+  // devServer和entry是平级的
+  devServer: {
+    // 指向打包后的文件地址
+    contentBase: path.resolve(__dirname, './dist'),
+    // 是否自动打开一个新窗口
+    open: true,
+    // 端口号
+    port: 8081,
+    // 是否开启热更新
+    hot: true,
+    // 启用热模块替换，而不会在构建失败时将页面刷新作为后备。
+    hotOnly: true
+ },
+   // 插件
+   plugins: [
     // 复制一个 html 并将最后打包好的资源在 html 中引入
     new htmlWebpackPlugin({
       // 页面title 需要搭配 ejs 使用
@@ -76,8 +92,8 @@ module.exports = {
       }
     }),
     // 每次部署时清空 dist 目录
-    new CleanWebpackPlugin()
-  ],
-  // 是否开启 source-map
-  devtool: 'cheap-module-eval-source-map'
+    new CleanWebpackPlugin(),
+    // 启用模块热替换(HMR - Hot Module Replacement)
+    new webpack.HotModuleReplacementPlugin()
+  ]
 }
